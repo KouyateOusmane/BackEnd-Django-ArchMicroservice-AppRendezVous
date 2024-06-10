@@ -1,8 +1,11 @@
 # urls.py
 from django.urls import path
-from . import views
+from .views import ClientList, ClientCreate, ClientRetrieve, ClientUpdate, ClientDestroy
 
 urlpatterns = [
-    path('clients/', views.ClientListCreate.as_view(), name='client-list-create'),
-    path('clients/<int:pk>/', views.ClientRetrieveUpdateDestroy.as_view(), name='client-retrieve-update-destroy'),
+    path('clients/', ClientList.as_view(), name='client-list'),
+    path('clients/create/', ClientCreate.as_view(), name='client-create'),
+    path('clients/<int:pk>/', ClientRetrieve.as_view(), name='client-retrieve'),
+    path('clients/<int:pk>/update/', ClientUpdate.as_view(), name='client-update'),
+    path('clients/<int:pk>/delete/', ClientDestroy.as_view(), name='client-destroy'),
 ]
