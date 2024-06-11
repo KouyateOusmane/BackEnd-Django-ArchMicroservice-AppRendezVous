@@ -24,4 +24,5 @@ class ClientUpdate(generics.UpdateAPIView):
 
 class ClientDestroy(generics.DestroyAPIView):
     queryset = Client.objects.all()
-    serializer_class = ClientSerializer
+    serializer_class = ClientSerializer 
+
