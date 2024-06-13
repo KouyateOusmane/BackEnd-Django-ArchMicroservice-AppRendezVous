@@ -1,4 +1,10 @@
 from django.shortcuts import render
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
+
+from .serializers import CustomTokenObtainPairSerializer
 
 
 from rest_framework import generics
@@ -26,3 +32,8 @@ class ClientDestroy(generics.DestroyAPIView):
     queryset = Client.objects.all()
     serializer_class = ClientSerializer 
 
+class CustomTokenObtainPairView(TokenObtainPairView):
+    serializer_class = CustomTokenObtainPairSerializer
+
+class MyTokenRefreshView(TokenRefreshView):
+    pass
